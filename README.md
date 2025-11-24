@@ -19,7 +19,7 @@ This script will clone the project at a given location, build the project and de
 
 ```sh
 # On windows and from the root directory
-./scripts/install.bat
+./scripts/install.ps1
 
 # On Linux/MacOS from the root directory
 ./scripts/install.sh
