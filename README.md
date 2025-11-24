@@ -7,15 +7,25 @@
 ## Features
 
 - **Explicit Build Definitions** – The profiles and build steps are defined in the `rune.json` file.
-- **Multi-profile Support** – Build for multiple architectures easily.
-- **Script Hooks** – Add pre/post build behavior with reusable named scripts.
-- **Targets, Custom Outputs & Flags** – Each profile has it's own target, output and flags, allowing you to have multiple Odin projects within the same repository.
+- **Multi-profile Support** – Build for multiple architectures and platforms easily.
+- **Script Hooks** – Add pre/post build behavior with scripts. It also support copying files.
+- **Targets, Custom Outputs & Flags** – Each profile has it's own target, output and flags, allowing you customize each version of your project easily.
 
 ## Installation
 
-To install Rune, you can either download the source code from one of the releases or clone the repository by running ```git clone https://github.com/DavidAlexLapierre/rune.git```. I suggested always picking the latest release since it will have the appropriate version.
+To install Rune, you can download the source code from the [latest release](https://github.com/dalapierre/rune/releases/latest) and run either of the following scripts to install Rune.
 
-Once you have the source code, run the follow command to build the project in your terminal
+This script will clone the project at a given location, build the project and delete the cloned repo:
+
+```sh
+# On windows and from the root directory
+./scripts/install.bat
+
+# On Linux/MacOS from the root directory
+./scripts/install.sh
+```
+
+If you want to build the project from within the repository, you can run the following instead:
 
 ```sh
 # On Windows and from the root directory
@@ -25,17 +35,11 @@ Once you have the source code, run the follow command to build the project in yo
 ./scripts/build.sh
 ```
 
-**Warning:** You may need to run the command `chmod +x ./scripts/build.sh` on linux and macos.
-
-**Note**: Once the project is built, either copy the executable to another directory or leave it as is. After that, add the path of the executable to your PATH `{root}/bin/`.
-
 ## Usage
 
 **Help**
 
 ```txt
-rune - A build tool for the Odin programming language
-
 Usage:
   rune command> [options]
 
@@ -79,7 +83,7 @@ Examples:
 
 **New**
 
-Create a new rune.json file with the given build mode and output target.
+Create a new rune.json file with the given build mode and output target. By default, it will create an executable for platform you are currently developing on.
 
 ```sh
 # Usage
@@ -189,7 +193,7 @@ rune clean
 
 Rune also comes built-in with a copy action in either the pre or post build step. This means you can easily copy any files or directory before or after your build, which can be useful in scenarios like copying game assets to your release directory.
 
-```
+```json
 profiles: [
   {
     "name": "default",
@@ -197,7 +201,8 @@ profiles: [
     ...
     "pre_build": {
       "copy": [
-        { "from": "assets/", "to": "assets/" }
+        { "from": "assets/", "to": "assets/" },
+        { "from": "data/configs.ini", "to": "data/configs.ini" }
       ]
     }
   }
