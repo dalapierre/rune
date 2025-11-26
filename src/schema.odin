@@ -1,6 +1,6 @@
 package main
 
-SCHEMA_PATH :: "https://raw.githubusercontent.com/ametyx/rune/refs/heads/main/misc/rune.1.0.x.json"
+SCHEMA_PATH :: "https://raw.githubusercontent.com/dalapierre/rune/refs/heads/main/misc/rune.1.0.x.json"
 
 CopyAction :: struct {
     to:     string                                  `json:"to"`,
