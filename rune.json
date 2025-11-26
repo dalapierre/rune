@@ -1,6 +1,6 @@
 {
     "$schema": "./misc/rune.1.0.x.json",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "default_profile": "debug",
     "profiles": [
         {

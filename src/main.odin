@@ -77,7 +77,7 @@ main :: proc() {
     if err != nil {
         fmt.println()
         fmt.eprintfln("Failed in: %.3f seconds with error %s", total_time, err)
-    } else {
+    } else if cmd != RUN {
         fmt.printfln("Completed in: %.3f seconds", total_time)
     }
 }
