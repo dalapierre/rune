@@ -1,6 +1,6 @@
 # Rune
 
-```Disclaimer:``` Rune is still in its early phases. As I'm developing personal projects with it, I am making modifications. As of now, any 0.X version is a breaking change. The breaking changes can be seen in the release's changelog. If the Rune.json schema changes, you may need to upgrade the schema path to use the correct 0.X version.
+```Disclaimer:``` I will stop working on this project in favor of [rbs](https://github.com/dalapierre/rbs) which allows for more flexibility. This version will stay here if people still want to use it.
 
 **Rune** is a profile based build system for [Odin](https://odin-lang.org/) projects. It lets you define and automate build steps and gives you an easy interface to test your projects.
 
